@@ -1,0 +1,86 @@
+hr{
+    width: 25vw;
+    position: relative;
+    top:2vw;
+}
+
+.forms_{
+    position: relative;
+
+    border-radius: 16px;
+    top:12vw;
+    left: 50%;
+    top:35%;
+    width: 30vw;
+    height: 35vw;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.realforms_{
+    position: absolute;
+    
+
+    top:8vw;
+
+    gap : 1vw;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.bt_{
+    position: absolute;
+
+    top:20vw;
+    left: 10.5vw;
+    width: 8vw;
+    height: 10vw;
+}
+
+.Tit{
+    position: absolute;
+    left: 20%;
+    top:43%;
+
+    font-family: 'GmarketSansMedium';
+
+    text-align: center;
+}
+
+.Ma_{
+    height: 70%;
+}
+
+
+.btt_{
+    width: 100%;
+    height: 25%;
+    border-radius: 16px;
+    border: none;
+  
+    color:white;
+    background-color: #31A040;
+  
+    font-family: 'GmarketSansMedium';
+  
+    transition: all 0.3s;
+  }
+
+  .btt_:hover{
+
+    border: 0.5px solid #31A040;
+  
+    color: #31A040;
+    background-color: white;
+
+  }
+
+
+  .TitT{
+    font-size: 2vw;
+  }
+
+  .TitTimage{
+    width: 20vw;
+  }

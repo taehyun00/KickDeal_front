@@ -1,0 +1,135 @@
+.title{
+    position: absolute;
+    font-family: 'GmarketSansMedium';
+    font-size: 1.5vw;
+    left: 2vw;
+}
+
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+.forms{
+  width: 30vw;
+  height: 35vw;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  position: absolute;
+  left: 35%;
+  top:25%;
+  font-family: 'GmarketSansMedium';
+
+  border-radius: 16px;
+
+}
+
+.ft{
+  font-size:1.5vw;
+  padding-left: 2vw;
+  padding-top: 2vw;
+}
+
+.fi{
+  background-color: white;
+  border: 1px solid #434343;
+  padding: 12px;
+  border-radius: 16px;
+  width: 25vw;
+  margin-left: 1.5vw;
+
+}
+.fi:focus-within{
+  border: 1px solid rgb(29, 179, 41);
+}
+.divW{
+  padding-left:2vw;
+  margin-top: 10px;
+  font-size: 1vw;
+}
+.fin{
+  width: 100%;
+  outline: none;
+  border: none;
+}
+.Ma{
+  height: 70%;
+}
+
+
+.error{
+  font-size: 0.8vw;
+  margin-left: 2vw;
+  margin-top: 0.6vw;
+  
+  color:#ef0000;
+}
+
+
+.bt{
+  position: absolute;
+
+  top:31vw;
+  left: 65%;
+  width: 8vw;
+  height: 10vw;
+
+}
+
+.bt1{
+  position: absolute;
+
+  top:31vw;
+  left: 10%;
+  width: 8vw;
+  height: 10vw;
+
+}
+
+.btt{
+  width: 100%;
+  height: 25%;
+  border-radius: 16px;
+  border: none;
+
+  color:white;
+  background-color: #31A040;
+
+  font-family: 'GmarketSansMedium';
+
+  transition: all 0.3s;
+}
+
+.btt1{
+  width: 100%;
+  height: 25%;
+  border-radius: 16px;
+  border: none;
+
+  color:white;
+  background-color: #31A040;
+
+  font-family: 'GmarketSansMedium';
+
+  transition: all 0.3s;
+}
+
+.btt:hover{
+
+  outline: 1px solid #31A040;
+  background-color: white;
+  color:#31A040;
+
+}
+
+.btt1:hover{
+
+  outline: 1px solid #31A040;
+  background-color: white;
+  color:#31A040;
+
+}

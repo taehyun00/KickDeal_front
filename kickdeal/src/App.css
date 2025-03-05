@@ -1,42 +1,267 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+.App {
+  width: 100%;
+  height:100%;
+  position: absolute;
+ 
+ 
+ 
+ }
+ 
+ .App-logo {
+   height: 40vmin;
+   pointer-events: none;
+ }
+ 
+ @media (prefers-reduced-motion: no-preference) {
+   .App-logo {
+     animation: App-logo-spin infinite 20s linear;
+   }
+ }
+ 
+ .App-header {
+   background-color: #282c34;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   font-size: calc(10px + 2vmin);
+   color: white;
+ }
+ 
+ .App-link {
+   color: #61dafb;
+ }
+ 
+ @keyframes App-logo-spin {
+   from {
+     transform: rotate(0deg);
+   }
+   to {
+     transform: rotate(360deg);
+   }
+ }
+ 
+ 
+ @font-face {
+   font-family: 'Pretendard-Regular';
+   src: url('./font/Pretendard-Regular.ttf');
+   font-weight: 400;
+   font-style: normal;
+ }
+ 
+ @font-face {
+   font-family: 'GmarketSansMedium';
+   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+ }
+ 
+ .main{
+   font-family: 'Pretendard-Regular';
+   font-size:24px;
+   padding-left: 10%;
+ 
+ 
+   
+ 
+ }
+ 
+ .detail{
+   font-family: 'Pretendard-Regular';
+   font-size:20px;
+   padding-left: 10%;
+ 
+ }
+ 
+ .logo{
+   width: 10vw;
+   position: absolute;
+   top:2vw;
+   left: 3vw;
+   z-index: 2;
+   
+ }
+ 
+ .back{
+   height: 10vw;
+   width: 100vw;
+   position: absolute;
+   top:-1vw;
+   left: 40vw;
+   z-index: -10;
+ }
+ .container{
+   background-color: rgb(255, 255, 255);
+   height: 8vw;
+   width: 100%;
+   border-bottom: 1px solid #434343;
+   z-index: 100;
+   position: fixed;
+   
+ }
+ 
+ .parent{
+   position: relative;
+   z-index: 10;
+ }
+ 
+ .searchInput{
+   width: 700px;
+   height: 30px;
+   border-radius: 15px;
+   border: 1.5px solid #434343;
+ }
+ .searchInput{
+   font-family: 'GmarketSansMedium';
+   font-size: 16px;
+   font-weight: 50;
+   padding-left: 10px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   text-align: left;
+ }
+ .searchInput:focus{
+   outline: 0px solid #434343;
+ }
+ .searchInput:focus::placeholder {
+   color: transparent;
+ }
+ .searchBox{
+   position: absolute;
+   top:2vw;
+   left: 25%;
+   width: 700px;
+   align-items: center;
+   display: flex;
+   justify-items: center;
+   margin: 0 auto;
+ }
+ .search-Img{
+   height: 20px;
+ 
+ }
+ .search-Img:hover{
+   filter: invert(62%) sepia(87%) saturate(275%) hue-rotate(344deg) brightness(102%) contrast(98%);
+ }
+ #search-Btn{
+   border: none;
+   background-color: #ffffff00;
+   position: absolute;
+   right: 10px;
+   top:10px;
+   cursor: pointer;
+ }
+ 
+ .select{
+   position: absolute;
+   left:75vw;
+   top:2.1vw;
+   width: 90px;
+   height: 40px;
+   border-radius: 15px;
+   align-items: center;
+   display: flex;
+   justify-items: center;
+   margin: 0 auto;
+   background-color:#31A040 ;
+   text-align: center;
+   color:white;
+   border-style: none;
+   font-size: 16px;
+ 
+ 
+   background: url('./images/arr.svg') no-repeat; 
+ 
+     background-position: right -10px center; 
+ 
+     padding-right: 30px; 
+ 
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+    
+ }
+ 
+ select::-ms-expand{
+ 
+   display:none;/*for IE10,11*/
+ 
+ }
+ 
+ .log{
+   position: absolute;
+   left:88%;
+   margin: 10px;
+   z-index: 10;
+   top:0vw;
+ 
+ }
+ 
+ .login{
+   background-color: rgba(255, 255, 255, 0);
+   border-style: none;
+   font-family: 'Pretendard-Regular';
+   font-size: 16px;
+   font-weight: 500;
+ }
+ 
+ 
+ .signup{
+   background-color: rgba(255, 255, 255, 0);
+   border-style: none;
+   font-family: 'Pretendard-Regular';
+   font-size: 16px;
+   font-weight: 500;
+ }
+ 
+ 
+ .signup:hover{
+   cursor: pointer;
+   
+ }
+ 
+ .login:hover{
+   cursor: pointer;
+   
+ }
+ 
+ 
+ .main{
+   position: relative;
+   top:10vw;
+ }
+ 
+ .chose{
+   position: absolute;
+   border-bottom: 1px solid #434343;
+   width: 100%;
+   height: 3vw;
+ 
+   top:8.05vw;
+   display: flex;
+   justify-content: center;
+   gap: 5vw;
+ 
+ 
+   font-family: 'GmarketSansMedium';
+   background-color: white;
+   z-index: 10;
+ 
+ 
+ }
+ 
+ 
+ .shop{
+   display: flex;
+   justify-content: center;
+ 
+   gap:6vw;
+ }
+ 
+ .v-line{
+   border-left : 1px solid #434343;
+ 
+   height : 100%;
+ 
+ }

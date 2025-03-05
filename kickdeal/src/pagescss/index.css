@@ -1,0 +1,203 @@
+.main{
+    position: absolute;
+    height: 70%;
+    width: 50vw;
+
+
+}
+
+.img{
+    position: absolute;
+    top:-5vw;
+    width: 70%; /* 혹은 적절한 값 */
+    height: auto;
+    left: 15vw;
+    z-index: -10;
+
+}
+
+
+
+.back{
+    position: absolute;
+    top:-10vw;
+    left: -10vw;
+
+    width: 110vw;
+    height: auto;
+
+}
+
+.dis{
+    font-size: 2vw;
+    font-family: 'Pretendard-black';
+
+    position: absolute;
+    left: 63vw;
+    top:-3vw;
+    width: 19vw;
+
+    color:#434343;
+    z-index: -10;
+}
+
+.disc{
+    font-size: 1.2vw;
+    font-family: 'Pretendard-re';
+
+    position: absolute;
+    left: 63vw;
+    top:3vw;
+
+    width: 19vw;
+    z-index: -10;
+
+}
+
+
+.buy{
+
+    background-color: #31A040;
+    width: 9vw;
+    height: 3vw;
+    border: none;
+    border-radius: 25px;
+    color:white;
+    position: absolute;
+    top:8vw;
+    left:63vw;
+
+    display : flex;
+    justify-content : center;
+    align-items : center;
+
+    font-size: 1vw;
+
+    font-family: 'GmarketSansMedium';
+    
+    transition: all 0.5s;
+
+    z-index: 0;
+}
+
+.buy:hover{
+
+    background-color: #ffffff;
+
+    border: 0.5px solid #31A040 ;
+
+    color: #31A040;
+
+}
+
+
+@font-face {
+    font-family: 'Pretendard-black';
+    src: url('../font/Pretendard-Black.ttf');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'Pretendard-re';
+    src: url('../font/Pretendard-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+  .under{
+    position: absolute;
+    z-index: -10;
+
+    left: -20vw;
+    top: 45vw;
+
+    width: 200%;
+  }
+    .underimg{
+        overflow: hidden;
+        width: 100%; /* 또는 원하는 크기로 설정 */
+        height: 100%;
+    }
+    
+  
+
+  .underlog{
+    z-index: -10;
+    position: absolute;
+
+    top: 55vw;
+    left: 35%;
+
+    width: 100%;
+
+    text-align: center;
+    
+
+
+  }
+
+
+  .boldlog{
+    font-family: 'Pretendard-black';
+  }
+
+
+  span{
+    font-family: 'Pretendard-re';
+
+    font-size: 1.3vw;
+  }
+
+
+  footer{
+    background-color: white ;
+
+    width: 100vw;
+    height: 25%;
+    position: absolute;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+
+    
+    bottom: -86vw;
+
+    z-index: -10;
+
+
+  }
+
+  .underlogo{
+    position: absolute;
+    width: 10vw;
+
+    left: 85vw;
+    top : 6vw;
+    
+  }
+
+
+  .down{
+    position: absolute;
+    left: 82%;
+    top:26vw;
+
+    z-index: -10;
+    animation:ani 1s infinite alternate; 
+    
+  }
+
+
+  @keyframes ani{
+    0%{transform:translate(0,5px);}
+    100%{transform:translate(0,0px);}
+    }  
