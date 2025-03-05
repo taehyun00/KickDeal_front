@@ -2,6 +2,7 @@ import '../pagescss/login.css';
 import logo from '../images/logo.svg'
 import React, {useState} from 'react'; 
 import axios from 'axios';
+import { jwtDecode } from "jwt-decode";
 
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +11,7 @@ export default function Login() {
   const [Pw,setPw] = useState("");
   const [Id,setId] = useState("");
   const navigate = useNavigate();
+
 
   function requestAccessToken() {
         axios.post(
@@ -30,7 +32,10 @@ export default function Login() {
           const accessToken = response.data.token;
           console.log("로그인 성공! 토큰 저장 완료:", accessToken);
           localStorage.setItem("token", accessToken);
-          navigate('/',  { replace: true });
+          let isl = "1";
+          localStorage.setItem("islogin",isl);
+
+          window.location.href = "/"
           
   
       })
