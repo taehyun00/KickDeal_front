@@ -12,17 +12,24 @@ export default function Join() {
   const  navigate  = useNavigate();
 
   const register = async() =>{
-    await axios.post('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/join',{
+    try{
+
+    const response = await axios.post('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/join',
+    {
     id : Id,
     password : Password,
-  })
-
-  .then((response)=>{
+    }
+  );
       console.log('well done!');
       localStorage.setItem('token', response.data.jwt);
+
       navigate('/email', { state :{ email: Email }});
-  })
-  }
+  }catch (error) {
+      console.error('회원가입 실패:', error.response ? error.response.data : error);
+      alert('회원가입에 실패했습니다. 다시 시도해주세요.');
+    }
+  };
+
 
   return (
       <div className="Ma">

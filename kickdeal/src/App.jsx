@@ -1,8 +1,8 @@
 import './App.css';
-import React from 'react'; 
+import React, {useState,useEffect}from 'react'; 
 import logo from './images/logo.svg';
 import search from './images/search.svg';
-
+import { jwtDecode } from "jwt-decode";
 import { Routes, Route, NavLink } from 'react-router-dom';
 
 import Index  from './pages/index';
@@ -24,23 +24,69 @@ function App() {
     color: "#31A040",
   };
 
+  const [userId, setUserId] = useState("");
+  const [show, setShow] = useState(false);
+  let isl = localStorage.getItem("islogin");
+
+  function logout() {
+    localStorage.setItem("islogin", "0");
+    setShow(false);
+    setUserId(""); 
+    localStorage.removeItem("token");
+  }
+
+  useEffect(() => {
+    console.log(isl)
+    if (isl === "1") {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+
+    const token = localStorage.getItem("token");
+    console.log(token);
+
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        console.log("야호", decoded.username);
+        setUserId(decoded.username);
+      } catch (error) {
+        console.error("Invalid token:", error);
+        localStorage.removeItem("token");
+        setUserId("");
+      }
+    }
+  }, [isl]); 
+
   return (
     
 
     <div className="App">
-      <div class="container">
-        <div class="parent">
-        <div class="log">
-        <NavLink to="/login"><button class="login"> 로그인 </button></NavLink>
-        <NavLink to="/join"><button class="signup"> 회원가입 </button></NavLink>
-        </div>
+      <div className="container">
+        <div className="parent">
+        <div className="log">
+  {!show ? (
+    <>
+      <NavLink to="/login"><button className="login"> 로그인 </button></NavLink>
+      <NavLink to="/join"><button className="signup"> 회원가입 </button></NavLink>
+    </>
+  ) : (
+    <>
+      <button className="login"> {userId} </button>
+
+      <button className="signup" onClick={logout}> 로그아웃 </button>
+    </>
+  )}
+</div>
+
         <div>
-        <NavLink to="/"><img src={logo} alt="" class="logo"></img></NavLink>
+        <NavLink to="/"><img src={logo} alt="" className="logo"></img></NavLink>
        
         
-        <div class="searchBox">
+        <div className="searchBox">
 
-          <input type="text" placeholder="상품명을 입력해주세요" class='searchInput'>
+          <input type="text" placeholder="상품명을 입력해주세요" className='searchInput'>
             
           </input>
 
@@ -50,7 +96,7 @@ function App() {
 
         </div>
         
-        <select class ="select">
+        <select className ="select">
       <optgroup>
     <option value="s">서울</option>
     <option value="B">대전</option>
@@ -63,12 +109,12 @@ function App() {
 
       </div>
 
-      <div class="chose">
+      <div className="chose">
         <p>
         <NavLink to="/all" style={({ isActive }) => ({...isActive ? activeStyle : {color : "black"},textDecoration: "none"})}>전체상품</NavLink>
         </p>
-        <div class="v-line"></div>
-        <div class="shop">
+        <div className="v-line"></div>
+        <div className="shop">
         <p>
         <NavLink to="/ball" style={({ isActive }) => ({...isActive ? activeStyle : {color : "black"},textDecoration: "none"})}>축구공</NavLink>
         </p>
@@ -93,7 +139,7 @@ function App() {
         <NavLink to="/another" style={({ isActive }) => ({...isActive ? activeStyle : {color : "black"},textDecoration: "none"})}>기타용품</NavLink>
         </p>
         </div>
-        <div class="v-line"></div>
+        <div className="v-line"></div>
         <p>
         <NavLink to="/product/save" style={({ isActive }) => ({...isActive ? activeStyle : {color : "black"},textDecoration: "none"})}>글올리기</NavLink>
         </p>
