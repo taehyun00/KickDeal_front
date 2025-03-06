@@ -17,7 +17,6 @@ function Product() {
 
   return (
       <div className="main">
-        <p>
           <div>
             
             <button>보기</button>
@@ -25,7 +24,6 @@ function Product() {
           </div>
         <p>{row}</p>
             
-        </p>
       </div>
 
   );
