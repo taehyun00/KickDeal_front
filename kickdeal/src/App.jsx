@@ -66,8 +66,18 @@ function App() {
       <div class="container">
         <div class="parent">
         <div class="log">
-        <NavLink to="/login"><button class="login"> 로그인 </button></NavLink>
-        <NavLink to="/join"><button class="signup"> 회원가입 </button></NavLink>
+        {!show ? (
+    <>
+      <NavLink to="/login"><button className="login"> 로그인 </button></NavLink>
+      <NavLink to="/join"><button className="signup"> 회원가입 </button></NavLink>
+    </>
+  ) : (
+    <>
+      <button className="login"> {userId} </button>
+
+      <button className="signup" onClick={logout}> 로그아웃 </button>
+    </>
+  )}
         </div>
         <div>
         <NavLink to="/"><img src={logo} alt="" className="logo"></img></NavLink>

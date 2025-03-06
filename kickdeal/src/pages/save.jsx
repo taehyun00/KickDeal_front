@@ -7,8 +7,14 @@ function Save() {
   const [Name,setNe] = useState("");
   const [Des,setDe] = useState("");
   const [Price,setPr] = useState("");
+
+  
   
   function upload(){
+
+    let token = localStorage.getItem("token");
+
+    if(token){
     axios.post('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product/save',{
       name : Name,
       description : Des,
@@ -18,6 +24,11 @@ function Save() {
       console.log(response.data);
     })
   }
+
+  else{
+    alert("로그인이 필요합니다");
+  }
+}
 
   return (
       <div class="main">
