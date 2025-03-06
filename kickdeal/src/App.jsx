@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState,useEffect}from 'react'; 
+import React, {useState,useEffect} from 'react'; 
 import logo from './images/logo.svg';
 import search from './images/search.svg';
 import { jwtDecode } from "jwt-decode";
@@ -63,23 +63,12 @@ function App() {
     
 
     <div className="App">
-      <div className="container">
-        <div className="parent">
-        <div className="log">
-  {!show ? (
-    <>
-      <NavLink to="/login"><button className="login"> 로그인 </button></NavLink>
-      <NavLink to="/join"><button className="signup"> 회원가입 </button></NavLink>
-    </>
-  ) : (
-    <>
-      <button className="login"> {userId} </button>
-
-      <button className="signup" onClick={logout}> 로그아웃 </button>
-    </>
-  )}
-</div>
-
+      <div class="container">
+        <div class="parent">
+        <div class="log">
+        <NavLink to="/login"><button class="login"> 로그인 </button></NavLink>
+        <NavLink to="/join"><button class="signup"> 회원가입 </button></NavLink>
+        </div>
         <div>
         <NavLink to="/"><img src={logo} alt="" className="logo"></img></NavLink>
        
