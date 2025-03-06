@@ -12,8 +12,7 @@ function Index() {
 
 
   return (
-      <div >
-        <div class="main">
+        <div class="MAin">
 
         <div>
             <img src={back} alt = "" class="back"></img>
@@ -49,13 +48,11 @@ function Index() {
             </div>
         </div>
 
-        
-       </div>
-       <footer>
+        <footer>
             <img src={logo} className='underlogo' />
         </footer>
-
-    </div>
+        
+       </div>
 
   );
 }

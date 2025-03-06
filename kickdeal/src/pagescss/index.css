@@ -1,7 +1,11 @@
-.main{
-    position: absolute;
-    height: 70%;
-    width: 50vw;
+.MAin{
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    font-family: 'Pretendard-Regular';
+
+  top:20vw;
 
 
 }
@@ -9,7 +13,7 @@
 .img{
     position: absolute;
     top:-5vw;
-    width: 70%; /* 혹은 적절한 값 */
+    width: 40%; /* 혹은 적절한 값 */
     height: auto;
     left: 15vw;
     z-index: -10;
@@ -21,7 +25,7 @@
 .back{
     position: absolute;
     top:-10vw;
-    left: -10vw;
+    left:-10vw;
 
     width: 110vw;
     height: auto;
@@ -120,7 +124,7 @@
     left: -20vw;
     top: 45vw;
 
-    width: 200%;
+    width: 120%;
   }
     .underimg{
         overflow: hidden;
@@ -135,7 +139,7 @@
     position: absolute;
 
     top: 55vw;
-    left: 35%;
+    left:0%;
 
     width: 100%;
 
@@ -148,13 +152,15 @@
 
   .boldlog{
     font-family: 'Pretendard-black';
+
+    font-size: 1.5vw;
   }
 
 
   span{
     font-family: 'Pretendard-re';
 
-    font-size: 1.3vw;
+    font-size: 2vw;
   }
 
 
@@ -188,7 +194,7 @@
 
   .down{
     position: absolute;
-    left: 82%;
+    left: 50%;
     top:26vw;
 
     z-index: -10;
