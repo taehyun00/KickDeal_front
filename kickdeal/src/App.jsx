@@ -7,7 +7,7 @@ import { Routes, Route, NavLink } from 'react-router-dom';
 
 import Index  from './pages/index';
 import Mypage  from './pages/mypages';
-import All  from './pages/all';
+import Product  from './pages/product';
 import Ball  from './pages/ball';
 import Kids  from './pages/kids';
 import Shoes  from './pages/shoes';
@@ -111,7 +111,7 @@ function App() {
 
       <div className="chose">
         <p>
-        <NavLink to="/all" style={({ isActive }) => ({...isActive ? activeStyle : {color : "black"},textDecoration: "none"})}>전체상품</NavLink>
+        <NavLink to="/product" style={({ isActive }) => ({...isActive ? activeStyle : {color : "black"},textDecoration: "none"})}>전체상품</NavLink>
         </p>
         <div className="v-line"></div>
         <div className="shop">
@@ -161,7 +161,7 @@ function App() {
  
         <Route path="/email" element={<Email />}></Route>
    
-        <Route path="/all" element={<All />}></Route>
+        <Route path="/product" element={<Product />}></Route>
 
         <Route path="/ball" element={<Ball />}></Route>
    
