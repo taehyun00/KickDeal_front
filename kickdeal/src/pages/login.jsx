@@ -36,10 +36,7 @@ export default function Login() {
           localStorage.setItem("islogin",isl);
 
           window.location.href = "/"
-<<<<<<< HEAD
-          
-=======
->>>>>>> 0416601 (로그인시 이름 보임)
+
   
       })
       .catch((error) => {
