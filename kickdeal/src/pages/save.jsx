@@ -9,14 +9,29 @@ function Save() {
   const [Price,setPr] = useState("");
   
   function upload(){
-    axios.post('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product/save',{
+    let token = localStorage.getItem("token");
+    if(token){
+    axios.post('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product/save',
+    {
       name : Name,
       description : Des,
       price : Price,
-    })
+    },
+    {
+      headers :{
+        Authorization: token,
+      }
+    }
+    )
     .then((response)=>{
       console.log(response.data);
     })
+    }
+
+
+    else{
+      alert("로그인이 필요합니다");
+    }
   }
 
   return (

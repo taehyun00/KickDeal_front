@@ -1,4 +1,8 @@
-.main{
+.indexbox{
     position: absolute;
-    top:20vw;
+    width: 100%;
+    height: auto;
+
+    flex-wrap: wrap;
+    align-content: flex-start;
   }
