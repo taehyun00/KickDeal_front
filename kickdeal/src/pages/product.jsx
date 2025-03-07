@@ -1,30 +1,29 @@
 import axios from 'axios';
-import '../pagescss/all.css';
+import '../pagescss/product.css';
 import React, { useState ,useEffect } from 'react'; 
+import Item from '../components/item';
 
 
 function Product() {
 
-  const [row,setrow] = useState();
+  const [item,setitem] = useState([]);
 
   useEffect(() => {
     axios.get('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product')
     .then((response)=>{
-      setrow(response.data[response.data.length - 1].id)
+      setitem(response.data)
     })
+
+    console.log(item)
     
-  })
+  },[])
 
   return (
-      <div className="main">
-          <div>
-            
-            <button>보기</button>
-          
-          </div>
-        <p>{row}</p>
-            
-      </div>
+    <div className="indexbox">
+    {item.map((item) =>{
+        return <Item  key={`key-${item.id}`} item ={item}/>
+    })}
+  </div>
 
   );
 }

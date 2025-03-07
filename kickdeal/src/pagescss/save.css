@@ -169,3 +169,21 @@
 
     font-size: 0.9vw;
   }
+
+
+  .save_img{
+    position: absolute;
+
+    top:18vw;
+    left: 15%;
+
+
+  }
+
+  .save_img_div{
+    width: 30vw;
+    height: 20vw;
+
+    background-color: #939393;
+    border-radius: 25px;
+  }

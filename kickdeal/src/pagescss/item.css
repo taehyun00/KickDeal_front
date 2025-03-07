@@ -1,0 +1,21 @@
+.items_back{
+    background-color: aqua;
+
+    width: 25vw;
+    height: 13vw;
+}
+
+.item_back_name{
+    position: relative;
+    top:10vw;
+    font-family: 'GmarketSansMedium';
+    font-size: 1.2vw;
+}
+
+.item_back_price{
+    position: relative;
+    top:11.5vw;
+    left: -3.5vw;
+    font-family: 'GmarketSansMedium';
+    font-size: 1vw;
+}

@@ -56,8 +56,8 @@ function Save() {
           <p className='paths'>글올리기</p>
         </div>
 
-        <div>
-          <div>
+        <div className='save_img'>
+          <div className='save_img_div'>
 
           </div>
         </div>
