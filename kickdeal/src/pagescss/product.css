@@ -5,9 +5,11 @@
 
     top:15vw;
 
-    display: flex;
-    flex-direction: column;
+
     gap: 2vw;
 
-    margin: 2vw;
+    margin: 3vw;
+
+    display: inline-grid;
+    grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
 }

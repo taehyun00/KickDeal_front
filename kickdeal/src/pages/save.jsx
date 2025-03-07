@@ -16,6 +16,9 @@ function Save() {
 
     let token = localStorage.getItem("token");
 
+    console.log(token)
+
+
     console.log(
       Name,
       Des,
@@ -24,16 +27,19 @@ function Save() {
     )
 
     if(token){
-    axios.post('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product/save',{
-      name : Name,
-      description : Des,
-      price : Price,
-      category : Co,
-    },{
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
+    axios.post(
+    "https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product/save",
+    {
+        name: Name,
+        description: Des,
+        price: Price,
+        category: Co,
+    },
+    {
+        headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json",
+        },
     }
     )
     .then((response)=>{
