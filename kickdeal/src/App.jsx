@@ -18,8 +18,27 @@ import Another  from './pages/another';
 import Join from './pages/join';
 import  Email from './pages/email';
 import Login from './pages/login';
+import Searchlist from './pages/searchlist';
 
 function App() {
+
+  const [searchMonter, setSearchMonter] =useState(localStorage.getItem("Search") || "");
+  const onChange = (e) => {
+    setSearchMonter(e.target.value);
+  };
+
+  function search_(){
+    localStorage.setItem("Search",searchMonter);
+    console.log(searchMonter)
+    if(searchMonter == null ){
+      return <Product />
+    }
+    else{
+    window.location.href = ("/searchlist");
+    }
+  };
+
+
   const activeStyle = {
     color: "#31A040",
   };
@@ -84,11 +103,11 @@ function App() {
         
         <div className="searchBox">
 
-          <input type="text" placeholder="상품명을 입력해주세요" className='searchInput'>
+          <input type="text" placeholder="상품명을 입력해주세요" className='searchInput' value={searchMonter} onChange ={onChange}>
             
           </input>
 
-          <button id='search-Btn'>
+          <button id='search-Btn' onClick = {search_}>
                     <img src={search} alt='search icon' className='search-Img'/>
                 </button>
 
@@ -130,7 +149,7 @@ function App() {
         </p>
 
         <p>
-        <NavLink to="/goalkeeper" style={({ isActive }) => ({...isActive ? activeStyle : {color : "black"},textDecoration: "none"})}>유소년</NavLink>
+        <NavLink to="/goalkeeper" style={({ isActive }) => ({...isActive ? activeStyle : {color : "black"},textDecoration: "none"})}>골키퍼용품</NavLink>
         </p>
 
         <p>
@@ -178,6 +197,9 @@ function App() {
         <Route path="/join" element={<Join />}></Route>
 
         <Route path="/login" element={<Login />}></Route>
+
+        <Route path="/searchlist" element={<Searchlist />}></Route>
+
 
     </Routes>
 
