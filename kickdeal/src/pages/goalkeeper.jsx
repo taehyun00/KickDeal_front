@@ -4,7 +4,7 @@ import React, { useState ,useEffect } from 'react';
 import Item from '../components/item';
 
 
-function Kid() {
+function Goalkeeper() {
   
   const [item,setitem] = useState([]);
 
@@ -30,4 +30,4 @@ function Kid() {
   );
 }
 
-export default Kid;
+export default Goalkeeper;

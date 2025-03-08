@@ -9,7 +9,7 @@ import Index  from './pages/index';
 import Mypage  from './pages/mypages';
 import Product  from './pages/product';
 import Ball  from './pages/ball';
-import Kids  from './pages/kids';
+import Goalkeeper  from './pages/goalkeeper';
 import Shoes  from './pages/shoes';
 import Shoes1  from './pages/shoes1';
 import Uniform  from './pages/uniform';
@@ -130,7 +130,7 @@ function App() {
         </p>
 
         <p>
-        <NavLink to="/kids" style={({ isActive }) => ({...isActive ? activeStyle : {color : "black"},textDecoration: "none"})}>유소년</NavLink>
+        <NavLink to="/goalkeeper" style={({ isActive }) => ({...isActive ? activeStyle : {color : "black"},textDecoration: "none"})}>유소년</NavLink>
         </p>
 
         <p>
@@ -167,7 +167,7 @@ function App() {
    
         <Route path="/shoes1" element={<Shoes1 />}></Route>
 
-        <Route path="/kids" element={<Kids />}></Route>
+        <Route path="/goalkeeper" element={<Goalkeeper />}></Route>
   
         <Route path="/another" element={<Another />}></Route>
 
