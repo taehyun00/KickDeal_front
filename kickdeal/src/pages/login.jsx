@@ -2,15 +2,43 @@ import '../pagescss/login.css';
 import logo from '../images/logo.svg'
 import React, {useState} from 'react'; 
 import axios from 'axios';
+import { jwtDecode } from "jwt-decode";
 
 
-import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
   const [Pw,setPw] = useState("");
   const [Id,setId] = useState("");
-  const navigate = useNavigate();
+
+  const checkref = async (accessToken,reftoken) => {
+    try {
+        const storedAccessToken = accessToken;
+        
+        // 토큰이 만료되지 않았다면 갱신할 필요 없음
+        if (storedAccessToken && !isTokenExpired(storedAccessToken)) {
+            return;
+        }
+
+        // 토큰이 만료되었을 경우 리프레시 토큰으로 갱신
+        const newAccessToken = reftoken;
+        localStorage.setItem('token', newAccessToken);
+        console.log("토큰 갱신 완료");
+    } catch (error) {
+        console.error("토큰 갱신 실패", error);
+        setAuth({ role: '', uid: '' });
+        localStorage.removeItem('token');
+    }
+};
+
+  
+
+  const isTokenExpired = (token) => {
+    const decoded = jwtDecode(token);
+    if (!decoded || !decoded.exp) return true;
+    const currentTime = Math.floor(Date.now() / 1000);
+    return decoded.exp < currentTime;
+};
 
 
   function requestAccessToken() {
@@ -28,14 +56,23 @@ export default function Login() {
           }
         )
         .then((response)=>{
-          console.log(response.data.token);
+          console.log(response.data);
           const accessToken = response.data.token;
+          const reftoken = response.data.refresh_token;
+
+         
           console.log("로그인 성공! 토큰 저장 완료:", accessToken);
           localStorage.setItem("token", accessToken);
+          checkref(accessToken,reftoken)
+          
+          
+
           let isl = "1";
           localStorage.setItem("islogin",isl);
 
           window.location.href = "/"
+
+          
 
   
       })

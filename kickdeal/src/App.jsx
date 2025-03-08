@@ -44,12 +44,11 @@ function App() {
     }
 
     const token = localStorage.getItem("token");
-    console.log(token);
 
     if (token) {
       try {
         const decoded = jwtDecode(token);
-        console.log("야호", decoded.username);
+        console.log(decoded.username);
         setUserId(decoded.username);
       } catch (error) {
         console.error("Invalid token:", error);
