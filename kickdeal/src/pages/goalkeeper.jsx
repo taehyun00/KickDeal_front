@@ -4,38 +4,30 @@ import React, { useState ,useEffect } from 'react';
 import Item from '../components/item';
 
 
-function Mypage() {
+function Goalkeeper() {
   
   const [item,setitem] = useState([]);
-  
 
   useEffect(() => {
     axios.get('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product')
     .then((response)=>{
       setitem(response.data)
     })
-    
+
+    console.log(item)
     
   },[])
 
-  const Name = localStorage.getItem("name");
-  
-
-
-
-
   return (
     <div className="indexbox">
-        {item
-      .filter((singleItem) => String(singleItem.user.id) === String(Name) )
-      .map((singleItem) => { 
-        return <Item key={`key-${singleItem.id}`} item={singleItem}/>
+    {item
+      .filter((singleItem) => singleItem.category === 'goalkeeper')  // 먼저 필터링
+      .map((singleItem) => {  // 필터링된 항목에 대해 map 수행
+        return <Item key={`key-${singleItem.id}`} item={singleItem} />
       })}
-
-
-       
   </div>
 
   );
 }
-export default Mypage;
+
+export default Goalkeeper;

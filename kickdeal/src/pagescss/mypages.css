@@ -1,4 +1,7 @@
 .main{
-    position: absolute;
-    top:2vw;
+    position: relative;
+    font-family: 'Pretendard-Regular';
+    width: 100%;
+    height: 100%;
+
   }

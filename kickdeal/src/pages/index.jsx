@@ -12,8 +12,7 @@ function Index() {
 
 
   return (
-      <div >
-        <div class="main">
+        <div class="MAin">
 
         <div>
             <img src={back} alt = "" class="back"></img>
@@ -32,7 +31,7 @@ function Index() {
             <div class="disc">
                 <p>그럴땐 KickDeal에서 빠르게<br></br>중고거래 해보세요!</p>
             </div>
-            <NavLink to="/all"><div className='buy'>구매하러 가기</div></NavLink>
+            <NavLink to="/product"><div className='buy'>구매하러 가기</div></NavLink>
         </div>
 
         <img src={down}  className='down'/>
@@ -49,13 +48,11 @@ function Index() {
             </div>
         </div>
 
-        
-       </div>
-       <footer>
+        <footer>
             <img src={logo} className='underlogo' />
         </footer>
-
-    </div>
+        
+       </div>
 
   );
 }

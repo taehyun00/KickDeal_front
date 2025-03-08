@@ -1,0 +1,32 @@
+.items_back{
+    background-color: rgb(255, 255, 255);
+
+    width: 25vw;
+    height: 13vw;
+
+    border:1px solid #434343;
+
+
+    position: relative;
+    border-radius: 20px;
+}
+
+.item_back_name{
+    position: relative;
+    top:10vw;
+    left: 1vw;
+    font-family: 'GmarketSansMedium';
+    font-size: 1.2vw;
+}
+
+.item_back_price{
+    position: absolute;
+    top:11.3vw;
+    left: 1vw;
+    font-family: 'GmarketSansMedium';
+    font-size: 1vw;
+}
+a {
+    text-decoration: none;  /* 밑줄 제거 */
+    color: inherit;  /* 기본 색상 상속 */
+}
