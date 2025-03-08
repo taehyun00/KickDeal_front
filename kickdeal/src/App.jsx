@@ -19,6 +19,8 @@ import Join from './pages/join';
 import  Email from './pages/email';
 import Login from './pages/login';
 import Searchlist from './pages/searchlist';
+import Productpart from './pages/productpart';
+
 
 function App() {
 
@@ -207,6 +209,8 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
 
         <Route path="/searchlist" element={<Searchlist />}></Route>
+
+        <Route path="/product/:id" element={<Productpart />}></Route>
 
 
     </Routes>

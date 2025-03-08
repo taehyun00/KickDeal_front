@@ -73,14 +73,14 @@
   }
 
   .bts{
-    width: 15vw;
+    width: 25vw;
     height: 3vw;
 
     border: none;
     border-radius: 20px;
 
     position: absolute;
-    left:65vw;
+    left:60vw;
     top:-3vw;
 
 

@@ -26,3 +26,7 @@
     font-family: 'GmarketSansMedium';
     font-size: 1vw;
 }
+a {
+    text-decoration: none;  /* 밑줄 제거 */
+    color: inherit;  /* 기본 색상 상속 */
+}

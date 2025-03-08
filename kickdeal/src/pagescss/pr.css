@@ -1,0 +1,104 @@
+.items_pr{
+    position: relative;
+    top:30vw;
+}
+
+.forms_save_{
+    position: absolute;
+
+    left: 60vw;
+    top:-13vw;
+
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction:column;
+    gap:2vw;
+}
+
+.form_div_span{
+    position: relative;
+
+    font-family: 'Pretendard-re';
+    
+    font-size: 1.2vw;
+    top:0.1vw;
+}
+
+.save_input_{
+    font-family: 'Pretendard-bold';
+    font-size: 1.6vw;
+}
+
+.save_input_Des{
+    font-family: 'Pretendard-re';
+    font-size: 1vw;
+
+    position: relative;
+
+    top:0.4vw;
+
+
+}
+
+.button_save_{
+    position: relative;
+
+    top:-5vw;
+    left:60vw;
+}
+
+.bts_{
+    width: 25vw;
+    height: 3vw;
+
+    border: none;
+    border-radius: 20px;
+
+    position: absolute;
+    top:17vw;
+
+
+
+    font-family: 'Pretendard-Bold';
+
+    color:white;
+    background-color: #c82e2e;
+
+    transition: all 0.5s;
+  }
+
+
+  .Des_board{
+    width: 25vw;
+    height: 10vw;
+
+  }
+
+
+  .cate_{
+    position: absolute;
+    top:13vw;
+    left:12vw;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap:0.5vw;
+  }
+
+
+  .product_img{
+    position: absolute;
+
+    top:-12vw;
+    left: 15%;
+
+  }
+
+  .save_img_div_{
+    width: 30vw;
+    height: 20vw;
+
+    background-color: #939393;
+    border-radius: 25px;
+  }

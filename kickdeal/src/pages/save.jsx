@@ -128,9 +128,9 @@ function Save() {
         <div>
         <div><span>세부사항</span></div>
         <div className='textar'>
-          <textarea placeholder='세부사항을 입력해주세요' className='save_textarea'value={Des}onChange={(event)=> 
+          <textarea placeholder='세부사항을 입력해주세요(최대 250자)' className='save_textarea'value={Des}onChange={(event)=> 
                   {setDe(event.target.value);
-                  }}rows={10} cols={60}/>
+                  }}rows={10} cols={60} maxlength='250'/>
                   </div>
         </div>
         </div>
