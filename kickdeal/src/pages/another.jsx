@@ -15,12 +15,14 @@ function Another() {
       setitem(response.data)
     })
 
-    console.log(item)
+
     
   },[])
 
   return (
+    
     <div className="indexbox">
+
     {item
       .filter((singleItem) => singleItem.category === 'other')  // 먼저 필터링
       .map((singleItem) => {  // 필터링된 항목에 대해 map 수행

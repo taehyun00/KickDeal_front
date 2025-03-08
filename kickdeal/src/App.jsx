@@ -29,7 +29,6 @@ function App() {
 
   function search_(){
     localStorage.setItem("Search",searchMonter);
-    console.log(searchMonter)
     if(searchMonter == null ){
       return <Product />
     }
@@ -65,7 +64,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(isl)
     if (isl === "1") {
       setShow(true);
     } else {
@@ -77,8 +75,8 @@ function App() {
     if (token) {
       try {
         const decoded = jwtDecode(token);
-        console.log(decoded.username);
         setUserId(decoded.username);
+
       } catch (error) {
         console.error("Invalid token:", error);
         localStorage.removeItem("token");
@@ -138,7 +136,7 @@ function App() {
 
       <div className="chose">
         <p>
-        <NavLink to="/product" style={({ isActive }) => ({...isActive ? activeStyle : {color : "black"},textDecoration: "none"})}>전체상품</NavLink>
+        <NavLink to="/product" style={({ isActive }) => ({...isActive&& window.location.pathname === "/product" ? activeStyle : {color : "black"},textDecoration: "none"})}>전체상품</NavLink>
         </p>
         <div className="v-line"></div>
         <div className="shop">

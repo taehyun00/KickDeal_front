@@ -12,9 +12,9 @@ function Product() {
     axios.get('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product')
     .then((response)=>{
       setitem(response.data)
+ 
     })
 
-    console.log(item)
     
   },[])
 

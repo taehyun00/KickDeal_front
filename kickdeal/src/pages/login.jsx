@@ -65,6 +65,8 @@ export default function Login() {
           localStorage.setItem("token", accessToken);
           checkref(accessToken,reftoken)
           
+          localStorage.setItem("name",Id);
+          console.log(Id)
           
 
           let isl = "1";
