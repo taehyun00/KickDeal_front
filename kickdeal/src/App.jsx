@@ -3,7 +3,7 @@ import React, {useState,useEffect} from 'react';
 import logo from './images/logo.svg';
 import search from './images/search.svg';
 import { jwtDecode } from "jwt-decode";
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink , useLocation  } from 'react-router-dom';
 
 import Index  from './pages/index';
 import Mypage  from './pages/mypages';
@@ -37,6 +37,16 @@ function App() {
     window.location.href = ("/searchlist");
     }
   };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname !== "/searchlist") {
+      localStorage.removeItem("Search");  
+      setSearchMonter("");  
+    }
+  },[location.pathname])
+  
 
 
   const activeStyle = {
