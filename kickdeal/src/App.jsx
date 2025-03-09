@@ -63,6 +63,7 @@ function App() {
     setShow(false);
     setUserId(""); 
     localStorage.removeItem("token");
+    window.location.href = "/"
   }
 
   useEffect(() => {

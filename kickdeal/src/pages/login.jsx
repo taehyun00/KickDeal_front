@@ -66,6 +66,7 @@ export default function Login() {
           checkref(accessToken,reftoken)
           
           localStorage.setItem("name",Id);
+          localStorage.setItem("password",Pw);
           console.log(Id)
           
 
@@ -119,7 +120,7 @@ export default function Login() {
               <div className='fi'>
                 <input  className='fin' placeholder='비밀번호를 입력해주세요' value={Pw}onChange={(event)=> 
                   {setPw(event.target.value);
-                  }}/>
+                  }} type='password'/>
               </div> 
             
             <hr className='line'></hr>

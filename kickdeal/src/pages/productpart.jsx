@@ -7,6 +7,8 @@ const Productpart = ()=> {
     const product = location.state?.product;
     const Co = product.category;
 
+    console.log(product.image)
+
     const price = (P) => {
         return P.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
     }
@@ -19,7 +21,7 @@ const Productpart = ()=> {
 
         <div className='product_img'>
           <div className='save_img_div_'>
-
+              <img src={product.image}></img>
           </div>
         </div>
 

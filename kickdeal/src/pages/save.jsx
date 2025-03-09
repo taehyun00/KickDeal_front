@@ -1,6 +1,7 @@
 import '../pagescss/save.css';
-import React,{useState} from 'react'; 
+import React,{useState,useRef} from 'react'; 
 import axios from 'axios';
+import { jwtDecode } from "jwt-decode";
 
 function Save() {
 
@@ -8,37 +9,72 @@ function Save() {
   const [Des,setDe] = useState("");
   const [Price,setPr] = useState("");
   const [Co,setCo] = useState("");
+  const [Img,setImg] = useState("");
+
+  const formData = new FormData();
+
+  const isTokenExpired = (token) => {
+    const decoded = jwtDecode(token);
+    if (!decoded || !decoded.exp) return true;
+    const currentTime = Math.floor(Date.now() / 1000);
+    return decoded.exp < currentTime;
+  };
+
+  
+  const image_preview = useRef();
+  const image_input = useRef();
+
+  function handleChange(e) {
+    const { name } = e.target;
+    
+    if (name === 'image') {
+    
+
+      const file = e.target.files[0];
 
 
+      formData.append("image", file);
+      setImg(file)
+      console.log(file);
+
+      if (file) {
+        const imgURL = URL.createObjectURL(file);
+  
+        
+        
+       
+        image_input.current.style.display = 'none'; 
+        image_preview.current.style.display = 'flex';
+  
+        
+        const imgElement = image_preview.current.children[0];
+        imgElement.setAttribute('src', imgURL); 
+      }
+    }
+  }
   
   
   function upload(){
 
+    formData.append("name", Name);
+    formData.append("description", Des);
+    formData.append("price", Price);
+    formData.append("category", Co);
+
     let token = localStorage.getItem("token");
 
-    console.log(token)
 
-
-    console.log(
-      Name,
-      Des,
-      Price,
-      Co
-    )
-
-    if(token){
+    if (token && !isTokenExpired(token)) {
+  
     axios.post(
     "https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product/save",
     {
-        name: Name,
-        description: Des,
-        price: Price,
-        category: Co,
+      formData,
     },
     {
         headers: {
             "Authorization": `Bearer ${token}`,
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
         },
     }
     )
@@ -52,26 +88,59 @@ function Save() {
   }
 
   else{
-    alert("로그인이 필요합니다");
+    const Id = localStorage.getItem("name")
+    const Pw = localStorage.getItem("password")
+    axios.post(
+      'https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/login',
+      {
+          id: Id, 
+          password: Pw,
+      },{
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+    })
+    .then((response)=>{
+      const accessToken = response.data.token;
+      localStorage.setItem("token", accessToken);
+      upload();
+
+    })
   }
+
 }
 
+
   return (
-      <div class="main_save">
+      <div className="main_save">
         <div>
           <p className='paths'>글올리기</p>
         </div>
 
         <div className='save_img'>
-          <div className='save_img_div'>
+          <label htmlFor="input_file">
+            <div className='image_file' ref={image_input}>
+              이미지 업로드<br></br><p className='save_img_div_p'>박스를 클릭해주세요!</p>
+            </div>
 
-          </div>
+            <div ref={image_preview} className='image_file_preview'>
+              <img src="" className='image_file_preview_img'></img>
+            </div>
+          </label>
+          <input id="input_file" type="file" name="image" className='input_file' accept="image/*" onChange={(e) => 
+            {
+              console.log(e.target.files)
+              handleChange(e)}}/>
         </div>
+
+
+
 
         <div className='cate'>
           <div className='cate_span'><span className='cate_span_value'>분류</span></div>
 
-<button
+        <button
         onClick={() => setCo("soccerShoes")}
         className={`cate_button ${Co === "soccerShoes" ? "active_save" : ""}`}
       >
