@@ -2,23 +2,25 @@ import '../pagescss/save.css';
 import React,{useState,useRef} from 'react'; 
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
-
+axios.defaults.withCredentials = true
 function Save() {
 
   const [Name,setNe] = useState("");
   const [Des,setDe] = useState("");
   const [Price,setPr] = useState("");
   const [Co,setCo] = useState("");
-  const [Img,setImg] = useState("");
-
-  const formData = new FormData();
 
   const isTokenExpired = (token) => {
-    const decoded = jwtDecode(token);
-    if (!decoded || !decoded.exp) return true;
-    const currentTime = Math.floor(Date.now() / 1000);
-    return decoded.exp < currentTime;
-  };
+    try {
+      const decoded = jwtDecode(token);
+      if (!decoded || !decoded.exp) return true;
+      const currentTime = Math.floor(Date.now() / 1000);
+      return decoded.exp < currentTime;
+    } catch (e) {
+      console.error("토큰 디코딩 실패:", e);
+      return true;
+    }
+  };  
 
   
   const image_preview = useRef();
@@ -31,11 +33,6 @@ function Save() {
     
 
       const file = e.target.files[0];
-
-
-      formData.append("image", file);
-      setImg(file)
-      console.log(file);
 
       if (file) {
         const imgURL = URL.createObjectURL(file);
@@ -56,25 +53,35 @@ function Save() {
   
   function upload(){
 
-    formData.append("name", Name);
-    formData.append("description", Des);
-    formData.append("price", Price);
-    formData.append("category", Co);
+    
+    console.log(
+      Name,
+      Des,
+      Price,
+      Co
+    )
+
 
     let token = localStorage.getItem("token");
+    console.log(token)
+
 
 
     if (token && !isTokenExpired(token)) {
+      
   
     axios.post(
-    "https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product/save",
-    {
-      formData,
+    "https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product/save",{
+      name : Name,
+      description : Des,
+      price : Price,
+      category : Co,
     },
     {
         headers: {
             "Authorization": `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json",
+
         },
     }
     )
@@ -85,6 +92,9 @@ function Save() {
         window.location.href = "/"
       }
     })
+    .catch((error) => {
+      console.error("업로드 실패:", error);
+    });
   }
 
   else{

@@ -1,5 +1,6 @@
 .items_pr{
-    position: relative;
+    position: absolute;
+    width:30%;
     top:30vw;
 }
 
@@ -55,7 +56,7 @@
     border-radius: 20px;
 
     position: absolute;
-    top:17vw;
+    top:15.5vw;
 
 
 
@@ -80,6 +81,8 @@
     top:13vw;
     left:12vw;
 
+    width: 40vw;
+
     display: flex;
     flex-wrap: wrap;
 
@@ -91,7 +94,7 @@
     position: absolute;
 
     top:-12vw;
-    left: 15%;
+    left: 15vw;
 
   }
 
@@ -101,4 +104,123 @@
 
     background-color: #939393;
     border-radius: 25px;
+  }
+
+
+  .product_modal_update{
+    position: absolute;
+
+    top:-15vw;
+    left: 120%;
+
+
+    background-color: white;
+    width: 25vw;
+    height: 30vw;
+    border: 1px solid #434343;
+    border-radius: 3vw;
+
+    z-index: 10;
+
+    display :none;
+
+    justify-content: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+
+  }
+
+
+  .product_modal_update_div{
+    position: relative;
+    
+    justify-content: center;
+
+
+    align-items: left;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.4vw;
+  }
+
+  .product_modal_update_input{
+    width: 22.5vw;
+    height: 2vw;
+
+    border-radius: 3vw;
+    border: 1px solid #434343;
+    position: relative;
+    left: 1vw;
+    top:-3vw;
+
+    text-align: center;
+  }
+
+  .product_modal_update_span{
+    position: relative;
+    left: 1vw;
+    top:-3vw;
+
+  }
+
+  .product_modal_p{
+    position: relative;
+    left: 1vw;
+    font-size: 1.1vw;
+    font-family: 'GmarketSansMedium';
+    top:-6vw;
+  }
+
+
+  .modal_btn
+  {
+    width: 35%;
+    height: 100%;
+    border-radius: 16px;
+    border: none;
+  
+    color:white;
+    background-color: #31A040;
+  
+    font-family: 'GmarketSansMedium';
+  
+    transition: all 0.3s;
+
+    position: absolute;
+    left: 13%;
+
+  }
+
+  .moadal_button{
+    width:100%;
+    height: 7%;
+    
+    position: relative;
+
+    
+  }
+
+  .modal_btn_down
+  {
+    width: 35%;
+    height: 100%;
+    border-radius: 16px;
+    border: none;
+  
+    color:white;
+    background-color: #a03131;
+  
+    font-family: 'GmarketSansMedium';
+  
+    transition: all 0.3s;
+
+    position: absolute;
+    left: 53%;
+
   }

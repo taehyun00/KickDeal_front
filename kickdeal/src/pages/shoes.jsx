@@ -14,9 +14,9 @@ function Shoes() {
       setitem(response.data)
     })
 
-    console.log(item)
     
   },[])
+  console.log(item)
 
   return (
     <div className="indexbox">
