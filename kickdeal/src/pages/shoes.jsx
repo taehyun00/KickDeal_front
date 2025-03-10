@@ -7,16 +7,19 @@ import Item from '../components/item';
 function Shoes() {
   
   const [item,setitem] = useState([]);
-
   useEffect(() => {
-    axios.get('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product')
+    axios.get("https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product")
     .then((response)=>{
       setitem(response.data)
+      console.log(item)
+    })
+
+    .catch((error)=>{
+      console.log(error)
     })
 
     
   },[])
-  console.log(item)
 
   return (
     <div className="indexbox">

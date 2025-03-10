@@ -12,6 +12,8 @@ const Item = ({item})=> {
         <div className='items'>
             <Link to={`/product/${item.id}`}state={{ product: item }}>
             <div className='items_back'>
+
+                <img src={item.image}></img>
                
                 <span className='item_back_name'>{item.name}</span>
                 <span className='item_back_price'> {price(item.price)}원 </span>

@@ -5,6 +5,8 @@ import { jwtDecode } from "jwt-decode";
 axios.defaults.withCredentials = true
 function Save() {
 
+
+
   const [Name,setNe] = useState("");
   const [Des,setDe] = useState("");
   const [Price,setPr] = useState("");
@@ -49,8 +51,7 @@ function Save() {
       }
     }
   }
-  
-  
+
   function upload(){
 
     

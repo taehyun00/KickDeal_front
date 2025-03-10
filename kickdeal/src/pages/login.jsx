@@ -68,12 +68,14 @@ export default function Login() {
           localStorage.setItem("name",Id);
           localStorage.setItem("password",Pw);
           console.log(Id)
+
+          window.location.href = "/";
           
 
           let isl = "1";
           localStorage.setItem("islogin",isl);
 
-          window.location.href = "/"
+         
 
           
 

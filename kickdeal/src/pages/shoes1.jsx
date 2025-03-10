@@ -4,9 +4,13 @@ import React, { useState ,useEffect } from 'react';
 import Item from '../components/item';
 
 
+
 function Shoes1() {
+
   
   const [item,setitem] = useState([]);
+  
+
 
   useEffect(() => {
     axios.get('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product')
