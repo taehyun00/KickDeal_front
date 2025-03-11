@@ -16,12 +16,6 @@ const Productpart = ()=> {
 
 
 
-    const [Name,setNe] = useState("");
-    const [Des,setDe] = useState("");
-    const [Price,setPr] = useState("");
-    const [modalOpen, setModalOpen] = useState(false);
-
-    const modal = useRef();
 
     const update_delete = useRef();
 
@@ -38,19 +32,6 @@ const Productpart = ()=> {
         return true;
       }
     };  
-
-    const openModal = () => {
-      setModalOpen(true);
-      modal.current.style.display = 'flex';
-    };
-
-    const close = () => {
-      setModalOpen(false);
-      modal.current.style.display = 'none';
-      setPr("")
-      setDe("")
-      setNe("")
-    };
 
     const price = (P) => {
         return P.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
@@ -99,62 +80,11 @@ const Productpart = ()=> {
     }
   }
 
-    function update(){
 
-      let token = localStorage.getItem("token");  
-      if (token && !isTokenExpired(token)) {
-
-
-
-      axios.put(`https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product/${id}`,{
-        name: Name,
-        price: Price,
-        description: Des,
-        category : Co
-      },
-      {
-          headers: {
-              "Authorization": `Bearer ${token}`,
-              "Content-Type": "application/json",
-  
-          }
-        })
-      .then(() => {
-        alert("상품이 성공적으로 수정되었습니다!");
-        modal.current.style.display = 'none';
-        window.location.href = `/`
-      })
-      .catch((error) => {
-        alert("수정 중 오류 발생");
-        console.error(error);
-      });
-
-
-    }
-
-    else{
-      const Id = localStorage.getItem("name")
-      const Pw = localStorage.getItem("password")
-      axios.post(
-        'https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/login',
-        {
-            id: Id, 
-            password: Pw,
-        },{
-          headers: {
-              "Content-Type": "application/json",
-              "Accept": "application/json",
-          },
-      })
-      .then((response)=>{
-        const accessToken = response.data.token;
-        localStorage.setItem("token", accessToken);
-        update();
-  
-      })
-    }
+  function openModal(){
+    localStorage.setItem("updateId",id);
+    window.location.href = "/update"
   }
-    
 
   useEffect(()=>{
     if(userId != Id ){
@@ -170,35 +100,6 @@ const Productpart = ()=> {
         
         <div className='items_pr'>
 
-          {modalOpen && (<div className='product_modal_update' ref={modal}>
-
-            <div>
-              <p className='product_modal_p'>수정내용을 입력해주세요</p>
-            </div>
-            <div className='product_modal_update_div'>
-              <span className='product_modal_update_span'>상품명</span>
-              <input value={Name}onChange={(event)=> 
-                  {setNe(event.target.value);
-                  }} className='product_modal_update_input'></input>
-            </div>
-            <div className='product_modal_update_div'>
-              <span  className='product_modal_update_span'>가격</span>
-              <input value={Price}onChange={(event)=> 
-                  {setPr(Number(event.target.value));
-                  }} className='product_modal_update_input'></input>
-            </div>
-            <div  className='product_modal_update_div'>
-              <span  className='product_modal_update_span'>세부사항</span>
-              <input value={Des}onChange={(event)=> 
-                  {setDe(event.target.value);
-                  }}className='product_modal_update_input'></input>
-            </div>
-
-            <div className='moadal_button'>
-              <button onClick={update} className='modal_btn'>확인</button>
-              <button onClick={close} className='modal_btn_down'>닫기</button>
-            </div>
-          </div>)}
 
           <div className='product_button_div' ref = {update_delete}>
             <button onClick={openModal} className='product_button_up'>수정하기</button>
