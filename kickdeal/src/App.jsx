@@ -20,6 +20,7 @@ import  Email from './pages/email';
 import Login from './pages/login';
 import Searchlist from './pages/searchlist';
 import Productpart from './pages/productpart';
+import Update from './pages/update';
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
     setShow(false);
     setUserId(""); 
     localStorage.removeItem("token");
+    window.location.href = "/"
   }
 
   useEffect(() => {
@@ -211,6 +213,8 @@ function App() {
         <Route path="/searchlist" element={<Searchlist />}></Route>
 
         <Route path="/product/:id" element={<Productpart />}></Route>
+
+        <Route path="/update/" element={<Update />}></Route>
 
 
     </Routes>

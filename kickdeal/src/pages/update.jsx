@@ -3,7 +3,7 @@ import React,{useState,useRef} from 'react';
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
 axios.defaults.withCredentials = true
-function Save() {
+function Update() {
 
 
 
@@ -67,12 +67,14 @@ function Save() {
     console.log(token)
 
 
-
     if (token && !isTokenExpired(token)) {
-      
+
+      let id = localStorage.getItem("updateId")
+
+      console.log(id)
   
-    axios.post(
-    "https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product/save",{
+    axios.put(
+      `https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product/${id}`,{
       name : Name,
       description : Des,
       price : Price,
@@ -88,13 +90,13 @@ function Save() {
     )
     .then((response)=>{
       console.log(response.data);
-      let conf = confirm("상품이 정상 등록되었습니다.");
+      let conf = confirm("상품이 정상 수정되었습니다");
       if(conf == true){
         window.location.href = "/"
       }
     })
     .catch((error) => {
-      console.error("업로드 실패:", error);
+      console.error("수정실패:", error);
     });
   }
 
@@ -126,7 +128,7 @@ function Save() {
   return (
       <div className="main_save">
         <div>
-          <p className='paths'>글올리기</p>
+          <p className='paths'>수정하기</p>
         </div>
 
         <div className='save_img'>
@@ -216,7 +218,7 @@ function Save() {
         </div>
 
         <div className='button_save'>
-        <button onClick={upload}className='bts' >글 올리기</button>
+        <button onClick={upload}className='bts' >수정하기</button>
         </div>
 
       </div>
@@ -224,4 +226,4 @@ function Save() {
   );
 }
 
-export default Save;
+export default Update;

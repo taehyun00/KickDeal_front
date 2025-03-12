@@ -1,25 +1,114 @@
 import '../pagescss/pr.css';
 import { useLocation } from 'react-router-dom';
-
+import {useState,useRef, useEffect} from 'react'; 
+import axios from 'axios';
+import { jwtDecode } from "jwt-decode";
 const Productpart = ()=> {
 
     const location = useLocation();
     const product = location.state?.product;
     const Co = product.category;
 
+    
+    const userId = product.user.id;
+    const Id = localStorage.getItem("name");
+    const id = product.id
+
+
+
+
+    const update_delete = useRef();
+
+  
+
+    const isTokenExpired = (token) => {
+      try {
+        const decoded = jwtDecode(token);
+        if (!decoded || !decoded.exp) return true;
+        const currentTime = Math.floor(Date.now() / 1000);
+        return decoded.exp < currentTime;
+      } catch (e) {
+        console.error("토큰 디코딩 실패:", e);
+        return true;
+      }
+    };  
+
     const price = (P) => {
         return P.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
     }
 
+      
+    function delate(){
+
+      let token = localStorage.getItem("token");  
+      
+      if (token && !isTokenExpired(token)) {
+        axios.delete(`https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/product/${id}`,
+      {
+          headers: {
+              "Authorization": `Bearer ${token}`,
+              "Content-Type": "application/json",
+  
+          }
+        })
+        .then(() => {
+          alert("상품이 성공적으로 삭제되었습니다!");
+      })
+      
+    }
+
+    else{
+      const Id = localStorage.getItem("name")
+      const Pw = localStorage.getItem("password")
+      axios.post(
+        'https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/login',
+        {
+            id: Id, 
+            password: Pw,
+        },{
+          headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+          },
+      })
+      .then((response)=>{
+        const accessToken = response.data.token;
+        localStorage.setItem("token", accessToken);
+        delate();
+  
+      })
+    }
+  }
+
+
+  function openModal(){
+    localStorage.setItem("updateId",id);
+    window.location.href = "/update"
+  }
+
+  useEffect(()=>{
+    if(userId != Id ){
+      update_delete.current.style.display = 'none';
+    }
+    else if(userId == Id){
+      update_delete.current.style.display = 'flex';
+    }
+  },[userId, Id])
 
     return(
 
         
         <div className='items_pr'>
 
+
+          <div className='product_button_div' ref = {update_delete}>
+            <button onClick={openModal} className='product_button_up'>수정하기</button>
+            <button onClick={delate} className='product_button_de'>삭제하기</button>
+          </div>
+
         <div className='product_img'>
           <div className='save_img_div_'>
-
+              <img src={product.image}></img>
           </div>
         </div>
 

@@ -66,32 +66,35 @@ export default function Login() {
           checkref(accessToken,reftoken)
           
           localStorage.setItem("name",Id);
+          localStorage.setItem("password",Pw);
           console.log(Id)
+
+          window.location.href = "/";
           
 
           let isl = "1";
           localStorage.setItem("islogin",isl);
 
-          window.location.href = "/"
+         
 
           
 
   
       })
       .catch((error) => {
-        // 더 구체적인 오류 메시지를 출력
         if (error.response) {
-            // 서버에서 응답이 온 경우
-            console.error("서버에서 반환한 오류 메시지:", error.response.data);
-            console.error("상태 코드:", error.response.status);  // 상태 코드 출력
+          console.error("서버에서 반환한 오류 메시지:", error.response.data);
+          console.error("상태 코드:", error.response.status); 
+          console.error("헤더 정보:", error.response.headers);
+          if (error.response.headers['www-authenticate']) {
+            console.error("인증 방식:", error.response.headers['www-authenticate']);
+        } // 상태 코드 출력
         } else if (error.request) {
-            // 요청은 했지만 응답이 없을 경우
-            console.error("응답을 받지 못했습니다:", error.request);
+          console.error("응답을 받지 못했습니다:", error.request);
         } else {
-            // 요청 설정에 문제가 있을 경우
-            console.error("요청 설정 오류:", error.message);
+          console.error("요청 설정 오류:", error.message);
         }
-    });
+      });
         
 
   };
@@ -119,7 +122,7 @@ export default function Login() {
               <div className='fi'>
                 <input  className='fin' placeholder='비밀번호를 입력해주세요' value={Pw}onChange={(event)=> 
                   {setPw(event.target.value);
-                  }}/>
+                  }} type='password'/>
               </div> 
             
             <hr className='line'></hr>
@@ -128,7 +131,7 @@ export default function Login() {
 
                 console.log("입력된 아이디:", Id);
                 console.log("입력된 비밀번호:", Pw);
-                requestAccessToken(Id,Pw)}}>로그인</button>
+                requestAccessToken()}}>로그인</button>
 
             </div>
             
