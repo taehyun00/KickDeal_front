@@ -2,7 +2,9 @@ import '../pagescss/save.css';
 import React,{useState,useRef} from 'react'; 
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true;
+const formData = new FormData();
+
 function Update() {
 
 
@@ -38,6 +40,8 @@ function Update() {
 
       if (file) {
         const imgURL = URL.createObjectURL(file);
+
+        formData.append("image",file)
   
         
         
