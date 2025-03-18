@@ -3,7 +3,6 @@ import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
 
 function Save() {
-  const formData = useRef(new FormData());
   const [Name, setNe] = useState("");
   const [Des, setDe] = useState("");
   const [Price, setPr] = useState("");
@@ -37,25 +36,25 @@ function Save() {
 
     if (name === 'image') {
       const file = e.target.files[0];
-
       if (file) {
         const imgURL = URL.createObjectURL(file);
-
         setImageFile(file);
         image_input.current.style.display = 'none';
         image_preview.current.style.display = 'flex';
-
         const imgElement = image_preview.current.children[0];
         imgElement.setAttribute('src', imgURL);
       }
     }
+    
   }
 
   function upload() {
     const formData = new FormData();
-    
-    // 이미지 파일을 formData에 추가
-    formData.append("image", ImageFile); // "image"는 백엔드에서 기대하는 파일 필드 이름
+
+    if (ImageFile) {
+      formData.append("image", ImageFile);
+    }
+  
 
     // JSON 데이터를 Blob 객체로 변환하여 formData에 추가
     const value = {
@@ -65,8 +64,8 @@ function Save() {
         userNickname: localStorage.getItem("name"), // 로그인한 사용자 이름
         category: Co
     };
-    const blob = new Blob([JSON.stringify(value)], {type: "application/json"});
-    formData.append("data", blob); // "data"는 백엔드에서 기대하는 JSON 데이터 필드 이름
+    const blob = new Blob([JSON.stringify(value)], { type: "application/json" });
+    formData.append("productRequestDTO", blob);
 
     let token = localStorage.getItem("token");
 
@@ -98,6 +97,7 @@ function Save() {
         });
     } else {
         const ref = localStorage.getItem("ref");
+        console.log(ref)
         
 
         axios.post(

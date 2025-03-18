@@ -257,3 +257,10 @@
   .product_button_de{
     background-color : #a03131;
   }
+
+  .save_img_div_{
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+
+  }
