@@ -8,7 +8,6 @@ const Productpart = ()=> {
     const location = useLocation();
     const product = location.state?.product;
     const Co = product.category;
-
     
     const userId = product.user.id;
     const Id = localStorage.getItem("name");
@@ -108,7 +107,7 @@ const Productpart = ()=> {
 
         <div className='product_img'>
           <div className='save_img_div_'>
-              <img src={product.image}></img>
+              <img src={product.imageUrl}></img>
           </div>
         </div>
 

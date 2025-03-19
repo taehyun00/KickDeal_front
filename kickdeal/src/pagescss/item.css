@@ -9,24 +9,46 @@
 
     position: relative;
     border-radius: 20px;
+    overflow: hidden;
 }
 
 .item_back_name{
     position: relative;
-    top:10vw;
-    left: 1vw;
+
+    
     font-family: 'GmarketSansMedium';
     font-size: 1.2vw;
 }
 
 .item_back_price{
-    position: absolute;
-    top:11.3vw;
-    left: 1vw;
+    position: relative;
+
+
     font-family: 'GmarketSansMedium';
     font-size: 1vw;
 }
 a {
     text-decoration: none;  /* 밑줄 제거 */
     color: inherit;  /* 기본 색상 상속 */
+}
+
+.item_img{
+    position: absolute;
+    z-index: 0;
+    width: 50vh;
+    height: 33vh;
+    top:-1vh;
+
+    
+    
+}
+
+
+.item_des{
+    position: relative;
+    left: 1vh;
+    width: 30vh;
+    height: 6vh;
+    display: flex;
+    flex-direction: column;
 }

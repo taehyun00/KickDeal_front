@@ -10,16 +10,23 @@ const Item = ({item})=> {
 
     return(
         <div className='items'>
+
             <Link to={`/product/${item.id}`}state={{ product: item }}>
             <div className='items_back'>
 
-                <img src={item.image}></img>
-               
-                <span className='item_back_name'>{item.name}</span>
-                <span className='item_back_price'> {price(item.price)}원 </span>
+                <img src={item.imageUrl} className='item_img'></img>
+                
                 
             </div>
             </Link>
+            <div className='item_des'>
+            
+            <span className='item_back_name'>{item.name}</span>
+            <span className='item_back_price'> {price(item.price)}원 </span>
+
+            </div>
+            
+            
         </div>
     )
 }
