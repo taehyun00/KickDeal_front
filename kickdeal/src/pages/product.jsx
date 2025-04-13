@@ -21,7 +21,7 @@ function Product() {
   return (
     <div className="indexbox">
     {item.map((item) =>{
-        return <Item  key={`key-${item.id}`} item ={item}/>
+        return <Item  key={`key-${item.id}`} item ={item}/> //전체상품띄우기
     })}
   </div>
 
