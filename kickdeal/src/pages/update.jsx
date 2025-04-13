@@ -4,6 +4,7 @@ import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
 axios.defaults.withCredentials = true;
 const formData = new FormData();
+const img = localStorage.getItem("img");
 
 function Update() {
 
@@ -41,7 +42,6 @@ function Update() {
       if (file) {
         const imgURL = URL.createObjectURL(file);
 
-        formData.append("image",file)
   
         
         
@@ -51,7 +51,7 @@ function Update() {
   
         
         const imgElement = image_preview.current.children[0];
-        imgElement.setAttribute('src', imgURL); 
+        imgElement.setAttribute('src', img); 
       }
     }
   }

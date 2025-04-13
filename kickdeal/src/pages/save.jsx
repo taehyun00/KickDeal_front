@@ -85,6 +85,7 @@ function Save() {
         .then((response) => {
             console.log(response.data);
             let conf = confirm("상품이 정상 등록되었습니다.");
+            localStorage.setItem("img",ImageFile);
             if (conf === true) {
                 window.location.href = "/";
             }

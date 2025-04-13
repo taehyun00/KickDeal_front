@@ -14,7 +14,7 @@ export default function Join() {
   const register = async() =>{
     try{
 
-    const response = await axios.post('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/join',
+    const response = await axios.post('https://port-0-kickdeal2-m1qhzohka7273c65.sel4.cloudtype.app/join',//시도
     {
     id : Id,
     password : Password,
